@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦幻西游无底洞技能-门派机制、核心连招与实战攻略指南</title>
+    <meta name="description" content="本站提供梦幻西游无底洞门派的详细技能介绍、心法加点、经脉配置及实战连招技巧。涵盖地煞星、副本及PK环境下的流派选择与注意事项。">
+    <meta name="keywords" content="梦幻西游无底洞技能, 梦幻西游无底洞攻略, 梦幻西游无底洞加点, 梦幻西游无底洞经脉, 梦幻西游无底洞连招">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 首屏 Hero */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 通用 Section */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.75rem;
+            border-left: 4px solid var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* 技能列表布局 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 3px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .skill-card.active {
+            border-top-color: var(--accent-color);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skill-type {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background-color: #eee;
+            color: #666;
+        }
+
+        .skill-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-detail {
+            font-size: 0.85rem;
+            background-color: #f9f9f9;
+            padding: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .skill-detail strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--primary-color);
+        }
+
+        /* 经脉配置 */
+        .meridian-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .meridian-list {
+            list-style: none;
+        }
+
+        .meridian-item {
+            background: var(--card-bg);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #ccc;
+        }
+
+        .meridian-item.selected {
+            border-left-color: var(--accent-color);
+            background-color: #fcfaff;
+        }
+
+        .meridian-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .meridian-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 实战指南 */
+        .guide-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .combo-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+
+        .combo-step {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .combo-arrow {
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        /* 常见问题 */
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1rem 1rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { display: none; } /* 简化处理，移动端隐藏菜单 */
+            .meridian-layout { grid-template-columns: 1fr; }
+            .combo-diagram { flex-direction: column; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>◈</span> 梦幻西游攻略站
+                </div>
+                <div class="nav-links">
+                    <a href="#skills">技能详解</a>
+                    <a href="#meridian">经脉配置</a>
+                    <a href="#combo">实战连招</a>
+                    <a href="#faq">常见问题</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>梦幻西游无底洞技能</h1>
+                <p>深度解析地藏王门派机制，从基础心法到高阶经脉，助你打造最强奶速辅助。</p>
+            </div>
+        </section>
+
+        <!-- 技能详解 -->
+        <section id="skills" class="container">
+            <h2 class="section-title">核心技能一览</h2>
+            <div class="skills-grid">
+                
+                <!-- 主动技能 -->
+                <article class="skill-card active">
+                    <div class="skill-header">
+                        <span class="skill-name">含笑半步颠</span>
+                        <span class="skill-type">主动</span>
+                    </div>
+                    <p class="skill-desc">消耗气血，提升自身速度并持续回复气血。起手神技，用于抢占先手或保命。</p>
+                    <div class="skill-detail">
+                        <strong>效果描述：</strong>
+                        使用后速度提升20%，持续3回合。每回合恢复气血上限的5%，持续3回合。
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-name">地涌金莲</span>
+                        <span class="skill-type">主动</span>
+                    </div>
+                    <p class="skill-desc">对敌方单体造成法术伤害，并有几率使目标进入“封印”状态。输出核心技能。</p>
+                    <div class="skill-detail">
+                        <strong>效果描述：</strong>
+                        造成法术伤害，命中后有40%几率使目标无法使用物理/法术攻击。
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-name">舍身诀</span>
+                        <span class="skill-type">被动</span>
+                    </div>
+                    <p class="skill-desc">受到法术伤害时，有几率对攻击者造成反噬。增加生存能力。</p>
+                    <div class="skill-detail">
+                        <strong>效果描述：</strong>
+                        被法术攻击时，有25%几率使攻击者受到反噬伤害。
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-name">六道轮回</span>
+                        <span class="skill-type">被动</span>
+                    </div>
+                    <p class="skill-desc">使用“地涌金莲”时，有几率造成额外伤害并恢复自身气血。持续输出核心。</p>
+                    <div class="skill-detail">
+                        <strong>效果描述：</strong>
+                        每次使用地涌金莲，有30%几率造成额外伤害并恢复自身气血。
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-name">剑荡八荒</span>
+                        <span class="skill-type">主动</span>
+                    </div>
+                    <p class="skill-desc">对敌方全体造成法术伤害，并降低敌方速度。群体输出与控制手段。</p>
+                    <div class="skill-detail">
+                        <strong>效果描述：</strong>
+                        伤害结果受法术伤害力影响，并降低目标速度10%，持续2回合。
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span class="skill-name">金刚伏魔</span>
+                        <span class="skill-type">主动</span>
+                    </div>
+                    <p class="skill-desc">解除自身异常状态，并提升防御。关键时刻的保命技能。</p>
+                    <div class="skill-detail">
+                        <strong>效果描述：</strong>
+                        解除自身异常状态，提升防御力，持续2回合。
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 经脉配置 -->
+        <section id="meridian" class="container">
+            <h2 class="section-title">经脉加点推荐</h2>
+            <div class="meridian-layout">
+                <div>
+                    <h3 style="margin-bottom:1rem; color:var(--primary-color);">主流流派选择</h3>
+                    <p style="margin-bottom:1.5rem; color:var(--text-secondary);">
+                        无底洞根据PK与副本需求，主要分为<strong>“辅助流”</strong>与<strong>“输出流”</strong>。辅助流侧重于回复与封印，输出流则追求地涌金莲的伤害最大化。
+                    </p>
+                    
+                    <ul class="meridian-list">
+                        <li class="meridian-item selected">
+                            <div>
+                                <h3>万佛朝宗（辅助流）</h3>
+                                <p>侧重“地涌金莲”的封印能力与“剑荡八荒”的群体减速。</p>
+                            </div>
+                            <span>推荐指数：★★★★★</span>
+                        </li>
+                        <li class="meridian-item">
+                            <div>
+                                <h3>金刚伏魔（输出流）</h3>
+                                <p>侧重“六道轮回”的额外伤害与“舍身诀”的生存反击。</p>
+                            </div>
+                            <span>推荐指数：★★★★☆</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom:1rem; color:var(--primary-color);">关键节点解析</h3>
+                    <div class="skill-detail" style="margin-bottom: 1rem;">
+                        <strong>经脉节点：金钟罩</strong>
+                        <p style="margin-top:0.5rem; font-size:0.9rem;">
+                            激活后，使用“剑荡八荒”有几率使目标“封印”。此节点是PVP中控制链的核心，能有效限制敌方物理系或法系输出。
+                        </p>
+                    </div>
+                    <div class="skill-detail">
+                        <strong>经脉节点：舍身决</strong>
+                        <p style="margin-top:0.5rem; font-size:0.9rem;">
+                            激活后，受到法术攻击时对攻击者造成反噬。这是无底洞在对方爆发时反打的关键，建议点满。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实战连招 -->
+        <section id="combo" class="container">
+            <h2 class="section-title">实战连招指南</h2>
+            
+            <div class="guide-tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'pve')">PVE副本</button>
+                <button class="tab-btn" onclick="openTab(event, 'pvp')">PVP竞技</button>
+            </div>
+
+            <div id="pve" class="tab-content active">
+                <h3>副本起手循环</h3>
+                <p style="margin-bottom:1rem; color:var(--text-secondary);">
+                    在副本中，无底洞主要负责输出、封印和辅助回复。由于拥有“含笑半步颠”，起手抢占速度至关重要。
+                </p>
+                <div class="combo-diagram">
+                    <div class="combo-step">1. 含笑半步颠</div>
+                    <div class="combo-arrow">➔</div>
+                    <div class="combo-step">2. 剑荡八荒</div>
+                    <div class="combo-arrow">➔</div>
+                    <div class="combo-step">3. 地涌金莲（点杀）</div>
+                    <div class="combo-arrow">➔</div>
+                    <div class="combo-step">4. 领取“金刚伏魔”</div>
+                </div>
+            </div>
+
+            <div id="pvp" class="tab-content">
+                <h3>PK控制链</h3>
+                <p style="margin-bottom:1rem; color:var(--text-secondary);">
+                    在PK中，无底洞需要通过“地涌金莲”的封印效果来打乱对方节奏，同时利用“舍身诀”反制法术爆发。
+                </p>
+                <div class="combo-diagram">
+                    <div class="combo-step">1. 含笑半步颠</div>
+                    <div class="combo-arrow">➔</div>
+                    <div class="combo-step">2. 地涌金莲（封印）</div>
+                    <div class="combo-arrow">➔</div>
+                    <div class="combo-step">3. 剑荡八荒（群体减速）</div>
+                    <div class="combo-arrow">➔</div>
+                    <div class="combo-step">4. 领取“舍身诀”</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section id="faq" class="container">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    无底洞适合新手玩吗？
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    无底洞是目前的“万金油”门派，既能辅助又能输出，操作难度适中，非常适合新手入门。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    点满地涌金莲后，还需要加剑荡八荒吗？
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    剑荡八荒是群体技能，虽然伤害不如单体技能高，但在群怪和PK中具有群体减速和封印控制的关键作用，建议保留。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    含笑半步颠的气血消耗大吗？
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    消耗不大，且回复效果可观。合理利用该技能可以保证无底洞在战斗初期的生存率和速度优势。
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于本站</h4>
+                    <p style="color:#bdc3c7; font-size:0.9rem;">
+                        本站专注于梦幻西游游戏攻略分享，提供最全面的无底洞技能解析与玩法指导。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#skills">技能大全</a></li>
+                        <li><a href="#meridian">经脉加点</a></li>
+                        <li><a href="#combo">连招教学</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">梦幻西游官网</a></li>
+                        <li><a href="#">帮派联赛指南</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 梦幻西游攻略站. 本站内容仅供学习参考，游戏版权归网易所有。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab 切换功能
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            evt.currentTarget.className += " active";
+        }
+
+        // FAQ 折叠功能
+        function toggleFaq(element) {
+            var parent = element.parentElement;
+            parent.classList.toggle('active');
+            var icon = element.querySelector('span');
+            icon.textContent = parent.classList.contains('active') ? '-' : '+';
+        }
+    </script>
+</body>
+                      </html>
