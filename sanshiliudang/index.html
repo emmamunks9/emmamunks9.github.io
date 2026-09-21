@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三十六荡-传统武术器械与实战技法深度解析</title>
+    <meta name="description" content="三十六荡官方网站，提供三十六荡武术器械的详细图解、动作拆解、历史渊源及实战技法教学，助您系统掌握这一传统武术瑰宝。">
+    <meta name="keywords" content="三十六荡, 武术器械, 传统武术, 太极, 长拳, 武术教学, 器械图谱">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #F4A460;
+            --bg-color: #FDFBF7;
+            --text-main: #2C2C2C;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            border: 2px solid var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Introduction Section */
+        .intro {
+            padding: 60px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .intro-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            height: auto;
+        }
+
+        /* Equipment Section */
+        .equipment {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-header .divider {
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .equip-card {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .equip-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .equip-img {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 3rem;
+        }
+
+        .equip-info {
+            padding: 20px;
+        }
+
+        .equip-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .equip-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .equip-link {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Techniques Section */
+        .techniques {
+            padding: 60px 0;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tech-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .tech-num {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(139, 69, 19, 0.1);
+            line-height: 1;
+        }
+
+        .tech-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .tech-content p {
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C2C2C;
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .tech-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <span>三十六荡</span>
+            武术技法库
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#intro">简介</a></li>
+                <li><a href="#equipment">器械图谱</a></li>
+                <li><a href="#techniques">技法解析</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+        <button class="search-btn" onclick="alert('搜索功能暂未开放')">搜索</button>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>三十六荡</h1>
+        <p>系统解析传统武术中的三十六荡技法体系，涵盖器械使用、动作拆解与实战应用，为武术爱好者提供专业的学习资源。</p>
+        <div class="hero-tags">
+            <span class="tag">器械图谱</span>
+            <span class="tag">动作拆解</span>
+            <span class="tag">实战应用</span>
+        </div>
+        <a href="#equipment" class="cta-btn">开始学习</a>
+    </div>
+</section>
+
+<main>
+    <section id="intro" class="intro">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>什么是三十六荡？</h2>
+                    <p>“三十六荡”是中国传统武术中极具代表性的技法体系，主要流传于民间武术流派。它并非指单一的招式，而是指一套包含三十六种不同动作形态的连贯技法组合。这些动作多以“荡”字命名，强调器械在空中的划弧、旋舞与撞击效果。</p>
+                    <p>该技法体系在实战中具有攻防兼备的特点，既可用于防守化解，也可借力打力进行反击。掌握三十六荡，对于理解传统武术的圆转变化和发力技巧具有重要意义。</p>
+                </div>
+                <div class="intro-image">
+                    <img src="https://picsum.photos/seed/wushu1/600/400" alt="武术练习场景">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="equipment">
+        <div class="container">
+            <div class="section-header">
+                <h2>常用器械图谱</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="equipment-grid">
+                <div class="equip-card">
+                    <div class="equip-img">🥋</div>
+                    <div class="equip-info">
+                        <h3>单头棍</h3>
+                        <p>三十六荡中最常用的器械之一，适合练习长距离的横扫与竖劈。</p>
+                        <a href="#" class="equip-link">查看图谱 →</a>
+                    </div>
+                </div>
+                <div class="equip-card">
+                    <div class="equip-img">⚔️</div>
+                    <div class="equip-info">
+                        <h3>大刀</h3>
+                        <p>重兵器演练，展示荡的刚猛气势，适合力量训练。</p>
+                        <a href="#" class="equip-link">查看图谱 →</a>
+                    </div>
+                </div>
+                <div class="equip-card">
+                    <div class="equip-img">🪃</div>
+                    <div class="equip-info">
+                        <h3>大扇</h3>
+                        <p>软兵器的一种，利用扇面的开合与旋转完成荡的动作。</p>
+                        <a href="#" class="equip-link">查看图谱 →</a>
+                    </div>
+                </div>
+                <div class="equip-card">
+                    <div class="equip-img">🛡️</div>
+                    <div class="equip-info">
+                        <h3>护手钩</h3>
+                        <p>钩镰类器械，荡法多变，兼具钩挂与扫荡功能。</p>
+                        <a href="#" class="equip-link">查看图谱 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="techniques" class="techniques">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心技法解析</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="tech-list">
+                <div class="tech-item">
+                    <div class="tech-num">01</div>
+                    <div class="tech-content">
+                        <h3>大荡劈</h3>
+                        <p>以腰部发力带动大臂，将器械由下至上呈弧线挥动，力达器械末端，适用于破下盘攻势。</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-num">02</div>
+                    <div class="tech-content">
+                        <h3>回身荡</h3>
+                        <p>身体迅速回转，利用转体惯性使器械在身后形成巨大的弧形打击圈，具有极强的防守反击能力。</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-num">03</div>
+                    <div class="tech-content">
+                        <h3>盘旋荡</h3>
+                        <p>器械在身前或身侧做连续的盘旋动作，如车轮般旋转，用于干扰对方视线或封堵进攻路线。</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-num">04</div>
+                    <div class="tech-content">
+                        <h3>点荡</h3>
+                        <p>动作短促有力，以点代荡，重点在于击打对方要害部位，讲究“点即荡，荡即点”的快节奏变化。</p>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-num">05</div>
+                    <div class="tech-content">
+                        <h3>压荡</h3>
+                        <p>利用器械的重量向下压制，迫使对方器械上扬，随即顺势横扫，完成连招。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container faq-container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">初学者如何开始练习三十六荡？</div>
+                <div class="faq-answer">
+                    建议先从分解动作开始，重点练习腰部的发力与手臂的协调。初期可使用轻器械，待动作规范后再逐渐增加器械重量。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">三十六荡适合所有武术流派吗？</div>
+                <div class="faq-answer">
+                    三十六荡更多见于北方传统武术和民间拳种，虽然其原理具有通用性，但具体招式名称和组合方式在不同流派中有差异。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">练习时需要注意哪些安全事项？</div>
+                <div class="faq-answer">
+                    练习时必须佩戴护具，选择空旷场地，避免器械脱手伤人。切勿在身体疲劳或未热身时进行高强度的荡法练习。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何判断动作是否规范？</div>
+                <div class="faq-answer">
+                    判断标准主要看“圆”与“荡”。动作是否圆润流畅，发力是否顺达，器械轨迹是否呈现明显的弧线荡动。
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于三十六荡</h4>
+                <p>致力于传统武术文化的传承与推广，为武术爱好者提供详实的技法资料与教学指导。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">器械介绍</a></li>
+                    <li><a href="#">教学视频</a></li>
+                    <li><a href="#">招式图解</a></li>
+                    <li><a href="#">论坛交流</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>学习资源</h4>
+                <ul>
+                    <li><a href="#">发力技巧</a></li>
+                    <li><a href="#">体能训练</a></li>
+                    <li><a href="#">装备选购</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 三十六荡武术技法库 版权所有</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // 简单的 FAQ 交互逻辑
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // 关闭其他打开的项
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // 切换当前项
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
