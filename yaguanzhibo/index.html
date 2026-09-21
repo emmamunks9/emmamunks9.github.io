@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亚冠直播 - 全球顶级俱乐部足球赛事实时观赛平台</title>
+    <meta name="description" content="提供2024-2025赛季亚冠联赛（ACL）高清直播、赛程表、积分榜及赛况数据。覆盖利雅得新月、横滨水手等豪门对决，支持多语言解说，实时更新比赛进程与进球提醒。">
+    <meta name="keywords" content="亚冠直播,亚冠联赛,亚冠赛程,亚冠积分榜,亚冠足球直播,亚洲足球">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #d4a017;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-light: #f4f6f9;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .live-badge {
+            background-color: #e63946;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #001f3f 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .match-card-hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .team-logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .match-info {
+            text-align: center;
+            padding: 0 20px;
+            border-left: 1px solid rgba(255,255,255,0.2);
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .match-time {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .live-btn {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .live-btn:hover {
+            background-color: #ff4d5a;
+            transform: scale(1.05);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Match List */
+        .match-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .match-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .match-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .match-teams {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .match-teams .team-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .match-teams .team-name.secondary {
+            text-align: right;
+        }
+
+        .match-teams .vs {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .match-status {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .status-text {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .status-text.ended {
+            color: var(--text-gray);
+        }
+
+        .status-time {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Sidebar */
+        aside .widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .standings-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .standings-table th, .standings-table td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .standings-table th {
+            background-color: #f8f9fa;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .rank {
+            font-weight: bold;
+            width: 30px;
+        }
+
+        .team-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 10px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .match-card-hero {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .match-teams {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .match-teams .team-name.secondary {
+                text-align: center;
+            }
+
+            .match-teams .vs {
+                display: none;
+            }
+
+            .match-status {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                🏆 亚冠直播
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">赛程直播</a></li>
+                    <li><a href="#">积分榜</a></li>
+                    <li><a href="#">进球集锦</a></li>
+                    <li><a href="#">新闻资讯</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero / Live Match Section -->
+        <section class="hero">
+            <h1>亚洲足球最高殿堂</h1>
+            <p>实时追踪2024-2025亚冠联赛（ACL）精彩赛事，为您带来最专业的比赛数据和高清直播体验。</p>
+            
+            <div class="match-card-hero">
+                <div class="team">
+                    <div class="team-logo">利</div>
+                    <div class="team-name">利雅得新月</div>
+                </div>
+                <div class="match-info">
+                    <div class="match-time">正在进行 · 75'</div>
+                    <button class="live-btn">立即观看</button>
+                </div>
+                <div class="team">
+                    <div class="team-name secondary">横滨水手</div>
+                    <div class="team-logo">横</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Main Content Area -->
+            <div class="content-area">
+                
+                <!-- Upcoming Matches -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">今日赛程</h2>
+                        <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看全部 &rarr;</a>
+                    </div>
+                    <div class="match-list">
+                        <!-- Match 1 -->
+                        <article class="match-item">
+                            <div class="match-teams">
+                                <div class="team-name">阿尔萨德</div>
+                                <span class="vs">VS</span>
+                                <div class="team-name secondary">蔚山现代</div>
+                            </div>
+                            <div class="match-status">
+                                <div class="status-text">未开始</div>
+                                <div class="status-time">20:00</div>
+                            </div>
+                        </article>
+
+                        <!-- Match 2 -->
+                        <article class="match-item">
+                            <div class="match-teams">
+                                <div class="team-name">吉达国民</div>
+                                <span class="vs">VS</span>
+                                <div class="team-name secondary">川崎前锋</div>
+                            </div>
+                            <div class="match-status">
+                                <div class="status-text">未开始</div>
+                                <div class="status-time">22:00</div>
+                            </div>
+                        </article>
+
+                        <!-- Match 3 -->
+                        <article class="match-item">
+                            <div class="match-teams">
+                                <div class="team-name">上海海港</div>
+                                <span class="vs">VS</span>
+                                <div class="team-name secondary">孟买城</div>
+                            </div>
+                            <div class="match-status">
+                                <div class="status-text">未开始</div>
+                                <div class="status-time">23:30</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Recent Results -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">昨日赛果</h2>
+                    </div>
+                    <div class="match-list">
+                        <article class="match-item">
+                            <div class="match-teams">
+                                <div class="team-name">利雅得胜利</div>
+                                <span class="vs">VS</span>
+                                <div class="team-name secondary">巴格达空军</div>
+                            </div>
+                            <div class="match-status">
+                                <div class="status-text ended">已结束</div>
+                                <div class="status-time">3:1</div>
+                            </div>
+                        </article>
+                        <article class="match-item">
+                            <div class="match-teams">
+                                <div class="team-name">浦和红钻</div>
+                                <span class="vs">VS</span>
+                                <div class="team-name secondary">全北现代</div>
+                            </div>
+                            <div class="match-status">
+                                <div class="status-text ended">已结束</div>
+                                <div class="status-time">1:1</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">观赛指南</h2>
+                    </div>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>如何观看亚冠直播？</h3>
+                            <p>点击赛程中的“立即观看”按钮，即可跳转至官方授权的直播平台或使用本站提供的观看入口。请确保网络连接稳定。</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>亚冠联赛包含哪些球队？</h3>
+                            <p>亚冠联赛由东亚区、西亚区及东南亚区的冠军球队组成，参赛队伍包括中超、J联赛、K联赛、沙特职业联赛等亚洲顶级俱乐部。</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>比赛数据在哪里查看？</h3>
+                            <p>除了实时比分，我们还提供详细的控球率、射门次数、黄牌红牌等统计数据，请查看比赛详情页。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Standings Widget -->
+                <div class="widget">
+                    <h3 class="widget-title">E组积分榜</h3>
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th>球队</th>
+                                <th>积分</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank">1</td>
+                                <td class="team-cell">利雅得新月</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">2</td>
+                                <td class="team-cell">横滨水手</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">3</td>
+                                <td class="team-cell">阿尔萨德</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">4</td>
+                                <td class="team-cell">孟买城</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ad Placeholder -->
+                <div class="widget" style="background-color: #e9ecef; display: flex; align-items: center; justify-content: center; min-height: 250px;">
+                    <span style="color: #999;">广告位</span>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系合作</a>
+                <a href="#">隐私政策</a>
+            </div>
+            <p class="copyright">Copyright © 2024 亚冠直播网. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Simple interaction for the "Watch" button
+        document.querySelectorAll('.live-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // In a real scenario, this would open a video player modal
+                const originalText = this.innerText;
+                this.innerText = "正在连接...";
+                this.style.backgroundColor = "#27ae60";
+                
+                setTimeout(() => {
+                    this.innerText = "观看中";
+                    this.style.backgroundColor = "#2ecc71";
+                    this.disabled = true;
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+                              </html>
