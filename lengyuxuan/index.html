@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="冷雨萱个人官方网站，展示冷雨萱的艺术作品、摄影集、创作历程及生活随笔。探索冷雨萱的艺术世界，获取最新动态与作品欣赏。">
+    <meta name="keywords" content="冷雨萱,艺术,摄影,个人主页,冷雨萱作品集">
+    <title>冷雨萱-个人艺术主页与作品展示</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-main: #333;
+            --text-light: #666;
+            --accent-color: #8b5cf6;
+            --accent-hover: #7c3aed;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --spacing: 24px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-desc {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .btn-subscribe {
+            background-color: var(--text-main);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/artistic/1920/1080');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: var(--text-main);
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            z-index: -1;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Works Gallery */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+
+        .work-thumb {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .work-thumb img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .work-card:hover .work-thumb img {
+            transform: scale(1.05);
+        }
+
+        .work-info {
+            padding: 20px;
+        }
+
+        .work-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .work-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .work-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Services/Features */
+        .features {
+            background-color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            transition: background 0.3s;
+        }
+
+        .feature-item:hover {
+            background: #f0f0f0;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Blog/Updates */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .blog-item {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+
+        .blog-item:hover {
+            transform: translateX(5px);
+        }
+
+        .blog-date {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+        }
+
+        .blog-date .day {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .blog-date .month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .blog-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid, .features-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .blog-item {
+                flex-direction: column;
+            }
+
+            .blog-date {
+                flex-direction: row;
+                gap: 8px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">冷雨<span>萱</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#works">作品集</a></li>
+                    <li><a href="#services">服务</a></li>
+                    <li><a href="#blog">动态</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-subscribe">联系合作</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>用色彩与光影，记录生活中的美好瞬间</h1>
+                <p>欢迎来到冷雨萱的个人主页。这里是我的创作空间，分享摄影作品、插画设计以及关于生活与艺术的思考。</p>
+                <div class="hero-btns">
+                    <a href="#works" class="btn-primary">浏览作品</a>
+                    <a href="#about" class="btn-secondary">了解更多</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/profile/600/700" alt="冷雨萱个人形象照">
+                    </div>
+                    <div class="about-text">
+                        <h2>关于冷雨萱</h2>
+                        <p>我是冷雨萱，一名独立视觉创作者。热爱捕捉城市中稍纵即逝的光影，擅长将自然风光与人文情感融入画面。</p>
+                        <p>拥有超过5年的摄影与视觉设计经验，曾为多家杂志及品牌提供视觉解决方案。我相信每一张照片背后都有一个动人的故事，致力于通过镜头语言传达真实的情感。</p>
+                        
+                        <div class="stats">
+                            <div class="stat-item">
+                                <h3>5+</h3>
+                                <p>年创作经验</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>200+</h3>
+                                <p>完成项目</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>50k+</h3>
+                                <p>社交媒体粉丝</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">我能为你提供什么</h2>
+                    <p class="section-desc">提供专业的视觉策划与创作服务，满足不同场景下的视觉需求。</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📷</div>
+                        <h3>商业摄影</h3>
+                        <p>产品静物拍摄、人物肖像及商业活动摄影，打造专业质感。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎨</div>
+                        <h3>平面设计</h3>
+                        <p>品牌VI设计、海报排版、插画绘制，提升品牌视觉识别度。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✨</div>
+                        <h3>视觉策划</h3>
+                        <p>提供从创意构思到落地执行的一站式视觉解决方案。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Gallery Section -->
+        <section id="works" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">精选作品</h2>
+                    <p class="section-desc">近期创作与摄影作品展示。</p>
+                </div>
+                <div class="works-grid">
+                    <!-- Work Card 1 -->
+                    <article class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/art1/400/300" alt="城市夜景摄影">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category">摄影</span>
+                            <h3 class="work-title">城市微光</h3>
+                            <p class="work-desc">记录繁华都市夜晚的静谧瞬间。</p>
+                        </div>
+                    </article>
+
+                    <!-- Work Card 2 -->
+                    <article class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/art2/400/300" alt="人物插画">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category">插画</span>
+                            <h3 class="work-title">夏日幻想</h3>
+                            <p class="work-desc">为儿童绘本创作的概念插画。</p>
+                        </div>
+                    </article>
+
+                    <!-- Work Card 3 -->
+                    <article class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/art3/400/300" alt="产品拍摄">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category">商业</span>
+                            <h3 class="work-title">极简生活系列</h3>
+                            <p class="work-desc">某生活方式品牌的产品拍摄案例。</p>
+                        </div>
+                    </article>
+
+                    <!-- Work Card 4 -->
+                    <article class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/art4/400/300" alt="自然风光">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-category">风光</span>
+                            <h3 class="work-title">山川湖海</h3>
+                            <p class="work-desc">旅行途中拍摄的壮丽自然景观。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog / Updates Section -->
+        <section id="blog" class="section" style="background-color: #f4f4f4;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">最新动态</h2>
+                    <p class="section-desc">分享创作心得与生活随笔。</p>
+                </div>
+                <div class="blog-list">
+                    <article class="blog-item">
+                        <div class="blog-date">
+                            <span class="day">15</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-tag">创作心得</span>
+                            <h3 class="blog-title">如何用自然光拍出高级感的照片</h3>
+                            <p class="blog-excerpt">今天想和大家分享一下我在户外拍摄时常用的光线运用技巧，以及如何利用黄金时刻...</p>
+                        </div>
+                    </article>
+
+                    <article class="blog-item">
+                        <div class="blog-date">
+                            <span class="day">02</span>
+                            <span class="month">09月</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-tag">作品发布</span>
+                            <h3 class="blog-title">秋季系列摄影作品集上线</h3>
+                            <p class="blog-excerpt">经过两个月的筹备，我的秋季摄影作品集终于整理完成。这次的主题是关于秋天的色彩...</p>
+                        </div>
+                    </article>
+
+                    <article class="blog-item">
+                        <div class="blog-date">
+                            <span class="day">20</span>
+                            <span class="month">08月</span>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-tag">生活随笔</span>
+                            <h3 class="blog-title">保持创作热情的几个小建议</h3>
+                            <p class="blog-excerpt">创作瓶颈期是每个创作者都会遇到的挑战。以下是我个人总结的一些缓解灵感枯竭的方法...</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); border-radius: 20px; padding: 60px 40px; text-align: center; color: white;">
+                    <h2 style="font-size: 2rem; margin-bottom: 16px;">有合作意向？</h2>
+                    <p style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9;">无论是商业拍摄、平面设计还是其他合作项目，欢迎随时联系我。</p>
+                    <a href="mailto:contact@lengyuxuan.com" class="btn-primary" style="background-color: white; color: var(--accent-color);">发送邮件咨询</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>冷雨萱</h3>
+                    <p>专注于视觉创作与艺术表达，致力于用影像讲述故事。</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="WeChat">W</a>
+                        <a href="#" aria-label="Weibo">S</a>
+                        <a href="#" aria-label="Instagram">I</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">关于</a></li>
+                        <li><a href="#works">作品</a></li>
+                        <li><a href="#services">服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>作品分类</h4>
+                    <ul>
+                        <li><a href="#">商业摄影</a></li>
+                        <li><a href="#">平面设计</a></li>
+                        <li><a href="#">风光摄影</a></li>
+                        <li><a href="#">插画创作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>订阅更新</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">获取最新的创作动态与作品推送。</p>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="email" placeholder="您的邮箱" style="flex: 1; padding: 8px; border-radius: 4px; border: none; outline: none;">
+                        <button style="background: var(--accent-color); color: white; border: none; padding: 0 15px; border-radius: 4px; cursor: pointer;">→</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 冷雨萱个人主页. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
